@@ -33,6 +33,11 @@ app.get("/comments", (req,res,next) => {
   res.json(comments);
 })
 
+app.post("/comments", (req,res,next) => {
+  comments.push(req.body);
+  res.json(comments);
+})
+
 app.get("/home",(req,res, next) => {
   res.render('homepage')
 })

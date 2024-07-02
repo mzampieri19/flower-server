@@ -11,6 +11,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 let rooms ={'152a':{a:5,b:6},'test':{a:1,b:2}};
+let comments = [{name:"Alice",comment:"Hello"},{name:"Bob",comment:"Hi"}]; 
 
 const app = express();
 
@@ -26,6 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req,res,next) => {
   res.json("Game Server "+Date());
+})
+
+app.get("/comments", (req,res,next) => {
+  res.json(comments);
 })
 
 app.get("/home",(req,res, next) => {
